@@ -1,45 +1,56 @@
 public class Turno {
         
-    private boolean Turno;
+    private boolean turno;
     private int puntosTurno;
+    private boolean game;
 
     public Turno() {
+        turno = false; // iniciar en false
+        puntosTurno = 0; // contador en 0
+        game = true; // iniciar en
     }
 
+    public boolean getGame() {
+        return this.game;
+    }
 
-    public boolean isTurno() {
-        return Turno;
+    public void setGame(boolean game) {
+        this.game = game;
+    }
+
+    public boolean getTurno() {
+        return this.turno;
     }
 
     public void setTurno(boolean turno) {
-        Turno = turno;
+        this.turno = turno;
     }
 
     public int getPuntosTurno() {
-        return puntosTurno;
+        return this.puntosTurno;
     }
 
     public void setPuntosTurno(int puntosTurno) {
         this.puntosTurno = puntosTurno;
     }
 
-    public int contPT(){
-        setPuntosTurno() = getPuntos() + getCara();
+    public void contarPT(dice dado, dice dad2){
+        this.puntosTurno = this.puntosTurno + dado.getCara() + dad2.getCara();
     }
+    
 
-    public int resetPT(){
-        getPuntosTurno() = 0;
-
-        
+    public void resetPT() {
+        this.puntosTurno = 0;
     }
 
     public boolean pasaTurno(){
+        if (this.puntosTurno >= 20) {
+            resetPT();
+            this.turno = !this.turno;
 
     }
-
-    
-
-
-
+        return turno;
     }
+
+}
 

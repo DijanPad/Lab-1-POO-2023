@@ -7,7 +7,7 @@ public class Jugador {
 
    private int Puntos;
 
-    public Jugador(){
+    public Jugador(int Puntos) {
         
     }
 
@@ -18,7 +18,30 @@ public class Jugador {
 
 
     public void setPuntos(int puntos) {
-        Puntos = this.puntos;
+        Puntos = getPuntos();
     }
 
+    public void resetpuntos(){
+        this.Puntos = 0;
+    }
+
+    public void sumarPuntos(dice dado, dice dad2){
+        this.Puntos = this.Puntos + dado.getCara() + dad2.getCara();
+    }
+
+    public void puntosToString(){
+        System.out.println("Ahora tienes " + this.Puntos + " Puntos" );
+    }
+
+    public void winTotring(){
+        System.out.println("Ganaste con " + this.Puntos + " Puntos" );
+    }
+
+    public void ganar(Turno turno){
+        if (this.Puntos >= 100) {
+            this.winTotring();
+            turno.setGame(!turno.getGame());
+        }
+    }
+    
 }
