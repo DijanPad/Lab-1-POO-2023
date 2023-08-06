@@ -15,13 +15,13 @@ public class dice {
     }
 
     public void setCara() {
-        this.cara = random.nextInt(6)+1;
+        this.cara = random.nextInt(6)+1; //rng del dado
     }
 
     public void resetPuntos(Jugador jugador, Turno turno) {
-        if (getCara() == 1) {
+        if (getCara() == 1) {   //condicion que reinicia el juego cada que salga un 1
             jugador.resetpuntos();
-            turno.setTurno(!turno.getTurno());
+            turno.setTurno(!turno.getTurno()); 
         }
     }
 

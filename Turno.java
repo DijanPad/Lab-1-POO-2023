@@ -7,7 +7,7 @@ public class Turno {
     public Turno() {
         turno = false; // iniciar en false
         puntosTurno = 0; // contador en 0
-        game = true; // iniciar en
+        game = true; // iniciar el juego 
     }
 
     public boolean getGame() {
@@ -34,16 +34,16 @@ public class Turno {
         this.puntosTurno = puntosTurno;
     }
 
-    public void contarPT(dice dado, dice dad2){
+    public void contarPT(dice dado, dice dad2){ //contador puntos por turno
         this.puntosTurno = this.puntosTurno + dado.getCara() + dad2.getCara();
     }
     
 
-    public void resetPT() {
+    public void resetPT() { //el reseteo cad que sale 1 o cmabiamos de jugador
         this.puntosTurno = 0;
     }
 
-    public boolean pasaTurno(){
+    public boolean pasaTurno(){//condicion clave de las reglas del juego con el cual no se puede obtrener pas de 20 puntos por turno
         if (this.puntosTurno >= 20) {
             resetPT();
             this.turno = !this.turno;
